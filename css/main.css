@@ -3269,7 +3269,7 @@ html.no-csstransitions .hero-content {
 .s-footer__bottom {
   font-family: "Gothic A1", sans-serif;
   color: rgba(255, 255, 255, 0.5);
-  margin-top: 8rem;
+  margin-top: 4rem;
 }
 
 .s-footer .footer-email-us .btn:hover,
@@ -3290,7 +3290,7 @@ html.no-csstransitions .hero-content {
 .footer-contact-block {
   font-family: "Gothic A1", sans-serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2rem;
   line-height: 1.2;
 }
 
