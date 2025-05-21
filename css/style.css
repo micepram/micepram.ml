@@ -249,6 +249,192 @@ section {
     }
 }
 
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.about-container {
+    max-width: 1100px;
+    width: 100%;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.8s var(--ease-out-expo);
+}
+
+.section-label.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.label-line {
+    width: 40px;
+    height: 1px;
+    background: var(--accent-gold);
+}
+
+.label-text {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+}
+
+.about-content {
+    margin-bottom: 4rem;
+}
+
+.about-intro {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s var(--ease-out-expo);
+}
+
+.about-intro.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-intro em {
+    font-style: normal;
+    color: var(--accent-gold);
+    position: relative;
+}
+
+.about-secondary {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s var(--ease-out-expo) 0.15s;
+}
+
+.about-secondary.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stats-orbs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.stat-orb {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    cursor: default;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s var(--ease-out-expo), 
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+}
+
+.stat-orb.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.stat-orb:hover {
+    border-color: rgba(244, 197, 66, 0.3);
+    box-shadow: 0 0 60px rgba(244, 197, 66, 0.15);
+}
+
+.stat-orb.accent-cyan:hover {
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 60px rgba(0, 212, 255, 0.15);
+}
+
+.stat-orb.accent-lavender:hover {
+    border-color: rgba(184, 169, 201, 0.3);
+    box-shadow: 0 0 60px rgba(184, 169, 201, 0.15);
+}
+
+.orb-glow {
+    position: absolute;
+    inset: 20%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(244, 197, 66, 0.1) 0%, transparent 70%);
+    filter: blur(20px);
+    transition: opacity 0.4s ease;
+}
+
+.stat-orb.accent-cyan .orb-glow {
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+}
+
+.stat-orb.accent-lavender .orb-glow {
+    background: radial-gradient(circle, rgba(184, 169, 201, 0.1) 0%, transparent 70%);
+}
+
+.stat-orb:hover .orb-glow {
+    opacity: 1.5;
+}
+
+.orb-content {
+    text-align: center;
+    z-index: 1;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 500;
+    color: var(--accent-gold);
+    line-height: 1.2;
+}
+
+.stat-orb.accent-cyan .stat-number {
+    color: var(--accent-cyan);
+}
+
+.stat-orb.accent-lavender .stat-number {
+    color: var(--accent-lavender);
+}
+
+.stat-label {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 900px) {
+    .stats-orbs {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
 @media (max-width: 768px) {
     section {
         padding: 80px 6%;
@@ -261,5 +447,13 @@ section {
     .social-link {
         width: 44px;
         height: 44px;
+    }
+    
+    .about-content {
+        margin-bottom: 3rem;
+    }
+    
+    .stats-orbs {
+        gap: 1.5rem;
     }
 }
