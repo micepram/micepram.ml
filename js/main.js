@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initStarfield();
+    initScrollAnimations();
+    initStatCounters();
 });
 
 function initStarfield() {
@@ -100,4 +102,93 @@ function initStarfield() {
         resize();
         initStars();
     });
+}
+
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = el.dataset.delay || 0;
+                
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, delay);
+            }
+        });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll(
+        '.section-label, .about-intro, .about-secondary, .stat-orb'
+    );
+    
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+function initStatCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let animated = false;
+
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                animateCounters();
+            }
+        });
+    }, observerOptions);
+
+    const statsContainer = document.querySelector('.stats-orbs');
+    if (statsContainer) {
+        observer.observe(statsContainer);
+    }
+
+    function animateCounters() {
+        statNumbers.forEach(stat => {
+            const target = parseFloat(stat.dataset.target);
+            const suffix = stat.dataset.suffix || '';
+            const prefix = stat.dataset.prefix || '';
+            const isDecimal = stat.dataset.decimal === 'true';
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function easeOutQuart(t) {
+                return 1 - Math.pow(1 - t, 4);
+            }
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutQuart(progress);
+                const current = target * easedProgress;
+
+                if (isDecimal) {
+                    stat.textContent = prefix + current.toFixed(current < 10 ? 2 : 1) + suffix;
+                } else {
+                    stat.textContent = prefix + Math.floor(current) + suffix;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    if (isDecimal) {
+                        stat.textContent = prefix + target + suffix;
+                    } else {
+                        stat.textContent = prefix + target + suffix;
+                    }
+                }
+            }
+
+            requestAnimationFrame(update);
+        });
+    }
 }
