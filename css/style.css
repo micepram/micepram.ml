@@ -435,6 +435,245 @@ section {
     }
 }
 
+.experience {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.experience-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 60px;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(180deg, var(--accent-gold), var(--accent-cyan));
+    transition: height 0.1s linear;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 3.5rem;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s var(--ease-out-expo);
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-node {
+    position: absolute;
+    left: -52px;
+    top: 6px;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.node-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 2px solid var(--accent-gold);
+    z-index: 2;
+    transition: all 0.3s var(--ease-out-expo);
+}
+
+.timeline-item[data-type="intern"] .node-dot {
+    border-color: var(--accent-cyan);
+}
+
+.timeline-item[data-type="research"] .node-dot,
+.timeline-item[data-type="fellowship"] .node-dot {
+    border-color: var(--accent-lavender);
+}
+
+.node-glow {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.3s ease;
+}
+
+.timeline-item[data-type="intern"] .node-glow {
+    background: var(--accent-cyan);
+}
+
+.timeline-item[data-type="research"] .node-glow,
+.timeline-item[data-type="fellowship"] .node-glow {
+    background: var(--accent-lavender);
+}
+
+.timeline-item:hover .node-glow {
+    opacity: 0.5;
+}
+
+.timeline-item:hover .node-dot {
+    background: var(--accent-gold);
+    transform: scale(1.2);
+}
+
+.timeline-item[data-type="intern"]:hover .node-dot {
+    background: var(--accent-cyan);
+}
+
+.timeline-item[data-type="research"]:hover .node-dot,
+.timeline-item[data-type="fellowship"]:hover .node-dot {
+    background: var(--accent-lavender);
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.4s var(--ease-out-expo);
+}
+
+.timeline-item:hover .timeline-content {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateX(8px);
+}
+
+.timeline-header {
+    margin-bottom: 0.5rem;
+}
+
+.timeline-company {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    align-items: baseline;
+}
+
+.timeline-role {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.timeline-date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.timeline-location {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.timeline-highlights {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+.timeline-highlights li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
+}
+
+.timeline-highlights li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    opacity: 0.6;
+}
+
+.timeline-item[data-type="intern"] .timeline-highlights li::before {
+    background: var(--accent-cyan);
+}
+
+.timeline-item[data-type="research"] .timeline-highlights li::before,
+.timeline-item[data-type="fellowship"] .timeline-highlights li::before {
+    background: var(--accent-lavender);
+}
+
+.timeline-highlights li:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    margin-top: 0.5rem;
+}
+
+.timeline-tag.fulltime {
+    background: rgba(244, 197, 66, 0.1);
+    color: var(--accent-gold);
+    border: 1px solid rgba(244, 197, 66, 0.2);
+}
+
+.timeline-tag.intern {
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.timeline-tag.research,
+.timeline-tag.fellowship {
+    background: rgba(184, 169, 201, 0.1);
+    color: var(--accent-lavender);
+    border: 1px solid rgba(184, 169, 201, 0.2);
+}
+
 @media (max-width: 768px) {
     section {
         padding: 80px 6%;
@@ -455,5 +694,42 @@ section {
     
     .stats-orbs {
         gap: 1.5rem;
+    }
+    
+    .timeline {
+        padding-left: 40px;
+    }
+    
+    .timeline-line {
+        left: 10px;
+    }
+    
+    .timeline-node {
+        left: -36px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .node-dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .node-glow {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .timeline-content {
+        padding: 1.25rem;
+    }
+    
+    .timeline-company {
+        font-size: 1.15rem;
+    }
+    
+    .timeline-meta {
+        flex-direction: column;
+        gap: 0.25rem;
     }
 }
