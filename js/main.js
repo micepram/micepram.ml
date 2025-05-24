@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initStarfield();
     initScrollAnimations();
     initStatCounters();
+    initTimelineProgress();
 });
 
 function initStarfield() {
@@ -124,7 +125,7 @@ function initScrollAnimations() {
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll(
-        '.section-label, .about-intro, .about-secondary, .stat-orb'
+        '.section-label, .about-intro, .about-secondary, .stat-orb, .timeline-item'
     );
     
     animatedElements.forEach(el => observer.observe(el));
@@ -191,4 +192,27 @@ function initStatCounters() {
             requestAnimationFrame(update);
         });
     }
+}
+
+function initTimelineProgress() {
+    const timeline = document.querySelector('.timeline');
+    const progress = document.querySelector('.timeline-progress');
+    
+    if (!timeline || !progress) return;
+
+    function updateProgress() {
+        const timelineRect = timeline.getBoundingClientRect();
+        const timelineTop = timelineRect.top;
+        const timelineHeight = timelineRect.height;
+        const windowHeight = window.innerHeight;
+        
+        const scrolledIntoTimeline = windowHeight * 0.5 - timelineTop;
+        const progressHeight = Math.max(0, Math.min(scrolledIntoTimeline, timelineHeight));
+        const progressPercent = (progressHeight / timelineHeight) * 100;
+        
+        progress.style.height = `${progressPercent}%`;
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
 }
