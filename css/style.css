@@ -188,7 +188,6 @@ section {
 .scroll-indicator {
     position: absolute;
     bottom: 40px;
-    left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
@@ -1167,5 +1166,214 @@ section {
     
     .selectivity-number {
         font-size: 1.75rem;
+    }
+}
+
+.education {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.education-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    padding: 2.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s var(--ease-out-expo);
+}
+
+.education-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.edu-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 2rem;
+}
+
+.edu-header {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.edu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(184, 169, 201, 0.1);
+    flex-shrink: 0;
+}
+
+.edu-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--accent-lavender);
+}
+
+.edu-institution {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.edu-degree {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.edu-meta {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.edu-location,
+.edu-dates {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.edu-gpa {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.gpa-value {
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    line-height: 1;
+}
+
+.gpa-scale {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+.edu-achievements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.edu-achievement {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s var(--ease-out-expo);
+}
+
+.edu-achievement.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.achievement-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.achievement-icon.gold {
+    background: rgba(244, 197, 66, 0.1);
+}
+
+.achievement-icon.gold svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-gold);
+}
+
+.achievement-icon.cyan {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.achievement-icon.cyan svg {
+    width: 20px;
+    height: 20px;
+    color: var(--accent-cyan);
+}
+
+.achievement-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.achievement-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.achievement-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+    .education-card {
+        padding: 1.75rem;
+    }
+    
+    .edu-main {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .edu-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .edu-gpa {
+        text-align: left;
+    }
+    
+    .gpa-value {
+        font-size: 2.5rem;
+    }
+    
+    .edu-achievements {
+        grid-template-columns: 1fr;
+    }
+    
+    .edu-achievement {
+        padding: 1rem;
     }
 }
