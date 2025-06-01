@@ -125,7 +125,7 @@ function initScrollAnimations() {
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll(
-        '.section-label, .about-intro, .about-secondary, .stat-orb, .timeline-item, .research-intro, .publication-card, .award-card'
+        '.section-label, .about-intro, .about-secondary, .stat-orb, .timeline-item, .research-intro, .publication-card, .award-card, .education-card, .edu-achievement'
     );
     
     animatedElements.forEach(el => observer.observe(el));
