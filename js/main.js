@@ -1,335 +1,218 @@
-/* ===================================================================
- * Ethos 1.0.0 - Main JS
- *
- * ------------------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+    initStarfield();
+    initScrollAnimations();
+    initStatCounters();
+    initTimelineProgress();
+});
 
-(function($) {
-
-    "use strict";
+function initStarfield() {
+    const canvas = document.getElementById('starfield');
+    const ctx = canvas.getContext('2d');
     
-    const cfg = {
-                scrollDuration : 800, // smoothscroll duration
-                mailChimpURL   : ''   // mailchimp url
-                };
-    const $WIN = $(window);
-
-
-    // Add the User Agent to the <html>
-    // will be used for IE10/IE11 detection (Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; rv:11.0))
-    const doc = document.documentElement;
-    doc.setAttribute('data-useragent', navigator.userAgent);
-
-
-
-   /* preloader
-    * -------------------------------------------------- */
-    const ssPreloader = function() {
-
-        $("html").addClass('ss-preload');
-
-        $WIN.on('load', function() {
-
-            // force page scroll position to top at page refresh
-            $('html, body').animate({ scrollTop: 0 }, 'normal');
-
-            // will first fade out the loading animation 
-            $("#loader").fadeOut("slow", function() {
-                // will fade out the whole DIV that covers the website.
-                $("#preloader").delay(300).fadeOut("slow");
-            }); 
-            
-            // for hero content animations 
-            $("html").removeClass('ss-preload');
-            $("html").addClass('ss-loaded');
-
-        });
-    };
-
-
-
-   /* pretty print
-    * -------------------------------------------------- */
-    const ssPrettyPrint = function() {
-        $('pre').addClass('prettyprint');
-        $( document ).ready(function() {
-            prettyPrint();
-        });
-    };
-
-
-
-   /* move header
-    * -------------------------------------------------- */
-    const ssMoveHeader = function () {
-
-        const $hero = $('.s-hero'),
-              $hdr = $('.s-header'),
-              triggerHeight = $hero.outerHeight() - 170;
-
-
-        $WIN.on('scroll', function () {
-
-            let loc = $WIN.scrollTop();
-
-            if (loc > triggerHeight) {
-                $hdr.addClass('sticky');
-            } else {
-                $hdr.removeClass('sticky');
-            }
-
-            if (loc > triggerHeight + 20) {
-                $hdr.addClass('offset');
-            } else {
-                $hdr.removeClass('offset');
-            }
-
-            if (loc > triggerHeight + 150) {
-                $hdr.addClass('scrolling');
-            } else {
-                $hdr.removeClass('scrolling');
-            }
-
-        });
-
-    };
-
-
-
-   /* mobile menu
-    * ---------------------------------------------------- */ 
-    const ssMobileMenu = function() {
-
-        const $toggleButton = $('.header-menu-toggle');
-        const $headerContent = $('.header-content');
-        const $siteBody = $("body");
-
-        $toggleButton.on('click', function(event){
-            event.preventDefault();
-            $toggleButton.toggleClass('is-clicked');
-            $siteBody.toggleClass('menu-is-open');
-        });
-
-        $headerContent.find('.header-nav a, .btn').on("click", function() {
-
-            // at 900px and below
-            if (window.matchMedia('(max-width: 900px)').matches) {
-                $toggleButton.toggleClass('is-clicked');
-                $siteBody.toggleClass('menu-is-open');
-            }
-        });
-
-        $WIN.on('resize', function() {
-
-            // above 900px
-            if (window.matchMedia('(min-width: 901px)').matches) {
-                if ($siteBody.hasClass("menu-is-open")) $siteBody.removeClass("menu-is-open");
-                if ($toggleButton.hasClass("is-clicked")) $toggleButton.removeClass("is-clicked");
-            }
-        });
-
-    };
-
-
-   /* accordion
-    * ------------------------------------------------------ */
-    const ssAccordion = function() {
-
-        const $allItems = $('.services-list__item');
-        const $allPanels = $allItems.children('.services-list__item-body');
-
-        $allPanels.slice(1).hide();
-
-        $allItems.on('click', '.services-list__item-header', function() {
-
-            const $this = $(this),
-                  $curItem = $this.parent(),
-                  $curPanel =  $this.next();
-
-            if(!$curItem.hasClass('is-active')){
-                $allPanels.slideUp();
-                $curPanel.slideDown();
-                $allItems.removeClass('is-active');
-                $curItem.addClass('is-active');
-            }
-            
-            return false;
-        });
-    };
-
-
-
-   /* photoswipe
-    * ----------------------------------------------------- */
-    const ssPhotoswipe = function() {
-        const items = [],
-            $pswp = $('.pswp')[0],
-            $folioItems = $('.folio-item');
-
-        // get items
-        $folioItems.each( function(i) {
-
-            let $folio = $(this),
-                $thumbLink =  $folio.find('.folio-item__thumb-link'),
-                $title = $folio.find('.folio-item__title'),
-                $caption = $folio.find('.folio-item__caption'),
-                $titleText = '<h4>' + $.trim($title.html()) + '</h4>',
-                $captionText = $.trim($caption.html()),
-                $href = $thumbLink.attr('href'),
-                $size = $thumbLink.data('size').split('x'),
-                $width  = $size[0],
-                $height = $size[1];
+    let width, height;
+    let stars = [];
+    let animationId;
+    
+    const STAR_COUNT = 200;
+    const STAR_SPEED = 0.02;
+    
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+    
+    function createStar() {
+        return {
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 1.5 + 0.5,
+            opacity: Math.random() * 0.5 + 0.2,
+            twinkleSpeed: Math.random() * 0.02 + 0.005,
+            twinkleOffset: Math.random() * Math.PI * 2,
+            layer: Math.random() < 0.3 ? 1 : Math.random() < 0.6 ? 2 : 3
+        };
+    }
+    
+    function initStars() {
+        stars = [];
+        for (let i = 0; i < STAR_COUNT; i++) {
+            stars.push(createStar());
+        }
+    }
+    
+    function drawStar(star, time) {
+        const twinkle = Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.3 + 0.7;
+        const alpha = star.opacity * twinkle;
         
-            let item = {
-                src  : $href,
-                w    : $width,
-                h    : $height
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        ctx.fill();
+        
+        if (star.size > 1.2) {
+            const gradient = ctx.createRadialGradient(
+                star.x, star.y, 0,
+                star.x, star.y, star.size * 3
+            );
+            gradient.addColorStop(0, `rgba(244, 197, 66, ${alpha * 0.3})`);
+            gradient.addColorStop(1, 'rgba(244, 197, 66, 0)');
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.size * 3, 0, Math.PI * 2);
+            ctx.fillStyle = gradient;
+            ctx.fill();
+        }
+    }
+    
+    function updateStars(scrollY) {
+        stars.forEach(star => {
+            const parallaxFactor = star.layer * 0.1;
+            star.y += scrollY * parallaxFactor * STAR_SPEED;
+            
+            if (star.y > height + 10) {
+                star.y = -10;
+                star.x = Math.random() * width;
+            } else if (star.y < -10) {
+                star.y = height + 10;
+                star.x = Math.random() * width;
             }
-
-            if ($caption.length > 0) {
-                item.title = $.trim($titleText + $captionText);
-            }
-
-            items.push(item);
         });
+    }
+    
+    let lastScrollY = window.scrollY;
+    let time = 0;
+    
+    function animate() {
+        time += 16;
+        
+        ctx.clearRect(0, 0, width, height);
+        
+        const scrollDelta = window.scrollY - lastScrollY;
+        lastScrollY = window.scrollY;
+        updateStars(scrollDelta);
+        
+        stars.forEach(star => drawStar(star, time));
+        
+        animationId = requestAnimationFrame(animate);
+    }
+    
+    resize();
+    initStars();
+    animate();
+    
+    window.addEventListener('resize', () => {
+        resize();
+        initStars();
+    });
+}
 
-        // bind click event
-        $folioItems.each(function(i) {
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-            $(this).find('.folio-item__thumb-link').on('click', function(e) {
-                e.preventDefault();
-                let options = {
-                    index: i,
-                    showHideOpacity: true
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const delay = el.dataset.delay || 0;
+                
+                setTimeout(() => {
+                    el.classList.add('visible');
+                }, delay);
+            }
+        });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll(
+        '.section-label, .about-intro, .about-secondary, .stat-orb, .timeline-item, .research-intro, .publication-card, .award-card, .education-card, .edu-achievement, .contact-heading, .contact-text, .contact-email, .contact-social'
+    );
+    
+    animatedElements.forEach(el => observer.observe(el));
+}
+
+function initStatCounters() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let animated = false;
+
+    const observerOptions = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !animated) {
+                animated = true;
+                animateCounters();
+            }
+        });
+    }, observerOptions);
+
+    const statsContainer = document.querySelector('.stats-orbs');
+    if (statsContainer) {
+        observer.observe(statsContainer);
+    }
+
+    function animateCounters() {
+        statNumbers.forEach(stat => {
+            const target = parseFloat(stat.dataset.target);
+            const suffix = stat.dataset.suffix || '';
+            const prefix = stat.dataset.prefix || '';
+            const isDecimal = stat.dataset.decimal === 'true';
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function easeOutQuart(t) {
+                return 1 - Math.pow(1 - t, 4);
+            }
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const easedProgress = easeOutQuart(progress);
+                const current = target * easedProgress;
+
+                if (isDecimal) {
+                    stat.textContent = prefix + current.toFixed(current < 10 ? 2 : 1) + suffix;
+                } else {
+                    stat.textContent = prefix + Math.floor(current) + suffix;
                 }
 
-                // initialize PhotoSwipe
-                let lightBox = new PhotoSwipe($pswp, PhotoSwipeUI_Default, items, options);
-                lightBox.init();
-            });
-
-        });
-    };
-
-
-
-   /* slick slider
-    * ------------------------------------------------------ */
-    const ssSlickSlider = function() {
-            
-        $('.testimonial-slider').slick({
-            arrows: false,
-            dots: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            pauseOnFocus: false,
-            autoplaySpeed: 1500,
-            responsive: [
-                {
-                    breakpoint: 1080,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 800,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    if (isDecimal) {
+                        stat.textContent = prefix + target + suffix;
+                    } else {
+                        stat.textContent = prefix + target + suffix;
                     }
                 }
-            ]
-        });
-    };
-
-
-   /* Animate On Scroll
-    * ------------------------------------------------------ */
-    const ssAOS = function() {
-        
-        AOS.init( {
-            offset: 100,
-            duration: 600,
-            easing: 'ease-in-out',
-            delay: 300,
-            once: true,
-            disable: 'mobile'
-        });
-
-    };
-
-
-
-   /* alert boxes
-    * ------------------------------------------------------ */
-    const ssAlertBoxes = function() {
-
-        $('.alert-box').on('click', '.alert-box__close', function() {
-            $(this).parent().fadeOut(500);
-        }); 
-
-    };
-
-    
-   /* smooth scrolling
-    * ------------------------------------------------------ */
-    const ssSmoothScroll = function() {
-        
-        $('.smoothscroll').on('click', function (e) {
-            const target = this.hash;
-            const $target = $(target);
-            
-            e.preventDefault();
-            e.stopPropagation();
-
-            $('html, body').stop().animate({
-                'scrollTop': $target.offset().top
-            }, cfg.scrollDuration, 'swing').promise().done(function () {
-                window.location.hash = target;
-            });
-        });
-
-    };
-
-
-   /* back to top
-    * ------------------------------------------------------ */
-    const ssBackToTop = function() {
-        
-        const pxShow = 800;
-        const $goTopButton = $(".ss-go-top")
-
-        // Show or hide the button
-        if ($(window).scrollTop() >= pxShow) $goTopButton.addClass('link-is-visible');
-
-        $(window).on('scroll', function() {
-            if ($(window).scrollTop() >= pxShow) {
-                if(!$goTopButton.hasClass('link-is-visible')) $goTopButton.addClass('link-is-visible')
-            } else {
-                $goTopButton.removeClass('link-is-visible')
             }
+
+            requestAnimationFrame(update);
         });
-    };
+    }
+}
 
+function initTimelineProgress() {
+    const timeline = document.querySelector('.timeline');
+    const progress = document.querySelector('.timeline-progress');
+    
+    if (!timeline || !progress) return;
 
+    function updateProgress() {
+        const timelineRect = timeline.getBoundingClientRect();
+        const timelineTop = timelineRect.top;
+        const timelineHeight = timelineRect.height;
+        const windowHeight = window.innerHeight;
+        
+        const scrolledIntoTimeline = windowHeight * 0.5 - timelineTop;
+        const progressHeight = Math.max(0, Math.min(scrolledIntoTimeline, timelineHeight));
+        const progressPercent = (progressHeight / timelineHeight) * 100;
+        
+        progress.style.height = `${progressPercent}%`;
+    }
 
-   /* initialize
-    * ------------------------------------------------------ */
-    (function ssInit() {
-
-        ssPreloader();
-        ssPrettyPrint();
-        ssMoveHeader();
-        ssMobileMenu();
-        ssAccordion();
-        ssPhotoswipe();
-        ssSlickSlider();
-        ssAOS();
-        ssAlertBoxes();
-        ssSmoothScroll();
-        ssBackToTop();
-
-    })();
-
-})(jQuery);
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+}
