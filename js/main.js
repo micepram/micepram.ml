@@ -1,9 +1,42 @@
 document.addEventListener('DOMContentLoaded', () => {
     initStarfield();
+    initHeroTransition();
     initScrollAnimations();
     initStatCounters();
     initTimelineProgress();
 });
+
+function initHeroTransition() {
+    const hero = document.getElementById('hero');
+    const header = document.getElementById('siteHeader');
+    const aboutSection = document.getElementById('about');
+    
+    if (!hero || !header || !aboutSection) return;
+    
+    // Always show the hero animation on page load/refresh
+    // Clear any previous state
+    hero.classList.remove('collapsed');
+    header.classList.remove('visible');
+    
+    // Wait for the name animation to complete (all letters reveal by ~1.1s)
+    // Then wait a bit more to let user appreciate it (~3.5s total)
+    // Then trigger the transition
+    const transitionDelay = 3500; // 3.5 seconds after page load
+    
+    setTimeout(() => {
+        // Collapse the hero
+        hero.classList.add('collapsed');
+        
+        // Show the header
+        header.classList.add('visible');
+        
+        // Smooth scroll to top of page after a small delay
+        setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 400);
+        
+    }, transitionDelay);
+}
 
 function initStarfield() {
     const canvas = document.getElementById('starfield');
@@ -22,13 +55,15 @@ function initStarfield() {
     }
     
     function createStar() {
+        const shouldTwinkle = Math.random() < 0.3;
         return {
             x: Math.random() * width,
             y: Math.random() * height,
             size: Math.random() * 1.5 + 0.5,
-            opacity: Math.random() * 0.5 + 0.2,
-            twinkleSpeed: Math.random() * 0.02 + 0.005,
+            opacity: Math.random() * 0.5 + 0.3,
+            twinkleSpeed: shouldTwinkle ? (Math.random() * 0.0008 + 0.0003) : 0,
             twinkleOffset: Math.random() * Math.PI * 2,
+            twinkleAmount: shouldTwinkle ? (Math.random() * 0.4 + 0.1) : 0,
             layer: Math.random() < 0.3 ? 1 : Math.random() < 0.6 ? 2 : 3
         };
     }
@@ -41,8 +76,11 @@ function initStarfield() {
     }
     
     function drawStar(star, time) {
-        const twinkle = Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * 0.3 + 0.7;
-        const alpha = star.opacity * twinkle;
+        let alpha = star.opacity;
+        if (star.twinkleSpeed > 0) {
+            const twinkle = Math.sin(time * star.twinkleSpeed + star.twinkleOffset) * star.twinkleAmount + (1 - star.twinkleAmount / 2);
+            alpha = star.opacity * twinkle;
+        }
         
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
@@ -54,8 +92,8 @@ function initStarfield() {
                 star.x, star.y, 0,
                 star.x, star.y, star.size * 3
             );
-            gradient.addColorStop(0, `rgba(244, 197, 66, ${alpha * 0.3})`);
-            gradient.addColorStop(1, 'rgba(244, 197, 66, 0)');
+            gradient.addColorStop(0, `rgba(255, 184, 0, ${alpha * 0.35})`);
+            gradient.addColorStop(1, 'rgba(255, 184, 0, 0)');
             ctx.beginPath();
             ctx.arc(star.x, star.y, star.size * 3, 0, Math.PI * 2);
             ctx.fillStyle = gradient;
