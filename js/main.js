@@ -163,7 +163,7 @@ function initScrollAnimations() {
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll(
-        '.section-label, .about-intro, .about-secondary, .stat-orb, .timeline-item, .research-intro, .publication-card, .award-card, .education-card, .edu-achievement, .contact-heading, .contact-text, .contact-email, .contact-social'
+        '.section-label, .about-intro, .about-secondary, .stat-item, .timeline-item, .research-intro, .publication-card, .award-card, .education-card, .edu-achievement, .contact-heading, .contact-text, .contact-email, .contact-social'
     );
     
     animatedElements.forEach(el => observer.observe(el));
@@ -186,7 +186,7 @@ function initStatCounters() {
         });
     }, observerOptions);
 
-    const statsContainer = document.querySelector('.stats-orbs');
+    const statsContainer = document.querySelector('.stats-row');
     if (statsContainer) {
         observer.observe(statsContainer);
     }
