@@ -163,7 +163,7 @@ function initScrollAnimations() {
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll(
-        '.section-label, .about-intro, .about-secondary, .stat-item, .timeline-item, .research-intro, .publication-row, .award-card, .education-content, .contact-heading, .contact-text, .contact-email, .contact-social'
+        '.section-label, .about-intro, .about-secondary, .stat-item, .timeline-item, .research-intro, .publication-row, .award-card, .cert-card, .education-content, .contact-heading, .contact-text, .contact-email, .contact-social'
     );
     
     animatedElements.forEach(el => observer.observe(el));
