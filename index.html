@@ -18,6 +18,28 @@
 <body>
     <canvas id="starfield"></canvas>
     
+    <!-- Fixed Header - appears after hero animation -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-content">
+            <span class="header-name">Pramika Garg</span>
+            <span class="header-tagline">Software Engineer · Researcher · Builder</span>
+        </div>
+        <nav class="header-social">
+            <a href="https://github.com/micepram" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/micepram" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn" title="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://scholar.google.com/citations?user=t0oW2mYAAAAJ" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google Scholar" title="Google Scholar">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+            </a>
+            <a href="mailto:micepram@gmail.com" class="social-link" aria-label="Email" title="Email">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+            </a>
+        </nav>
+    </header>
+    
     <main>
         <section id="hero" class="hero">
             <div class="hero-content">
@@ -29,27 +51,18 @@
                 <p class="hero-tagline">Software Engineer · Researcher · Builder</p>
                 
                 <div class="hero-social">
-                    <a href="https://github.com/micepram" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                    <a href="https://github.com/micepram" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub" title="GitHub">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
                     </a>
-                    <a href="https://linkedin.com/in/micepram" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                    <a href="https://linkedin.com/in/micepram" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn" title="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
-                    <a href="https://scholar.google.com/citations?user=t0oW2mYAAAAJ" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google Scholar">
+                    <a href="https://scholar.google.com/citations?user=t0oW2mYAAAAJ" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Google Scholar" title="Google Scholar">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
                     </a>
-                    <a href="mailto:micepram@gmail.com" class="social-link" aria-label="Email">
+                    <a href="mailto:micepram@gmail.com" class="social-link" aria-label="Email" title="Email">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
                     </a>
-                </div>
-            </div>
-            
-            <div class="scroll-indicator">
-                <span>Scroll to explore</span>
-                <div class="scroll-arrow">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-                    </svg>
                 </div>
             </div>
         </section>
@@ -63,43 +76,67 @@
                 
                 <div class="about-content">
                     <p class="about-intro">
-                        I build systems that scale. From architecting IoT platforms handling <em>250,000+ devices</em> to engineering ETL pipelines processing <em>10TB daily</em>, I focus on creating infrastructure that performs under pressure.
+                        I build systems that scale. From architecting <abbr title="Internet of Things" class="acronym">IoT</abbr> platforms handling <em>250,000+ devices</em> to engineering <abbr title="Extract, Transform, Load" class="acronym">ETL</abbr> pipelines processing <em>10TB daily</em>, I focus on creating infrastructure that performs under pressure.
                     </p>
                     <p class="about-secondary">
-                        Beyond engineering, I'm a published researcher with work spanning machine learning, computer vision, and distributed computing—driven by curiosity and a commitment to solving hard problems.
+                        Beyond engineering, I'm a published researcher with work in machine learning, computer vision, and distributed computing.
                     </p>
                 </div>
 
-                <div class="stats-orbs">
-                    <div class="stat-orb" data-delay="0">
-                        <div class="orb-glow"></div>
-                        <div class="orb-content">
-                            <span class="stat-number" data-target="6">0</span>
-                            <span class="stat-label">Research Papers</span>
+                <div class="stats-row">
+                    <div class="stat-item" data-delay="0">
+                        <span class="stat-number" data-target="6">0</span>
+                        <span class="stat-label">Research Papers</span>
+                    </div>
+                    <div class="stat-item" data-delay="100">
+                        <span class="stat-number" data-target="11">0</span>
+                        <span class="stat-label">Citations</span>
+                    </div>
+                    <div class="stat-item" data-delay="200">
+                        <span class="stat-number" data-target="5">0</span>
+                        <span class="stat-label">Scholarships</span>
+                    </div>
+                    <div class="stat-item" data-delay="300">
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">Awards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="education">
+            <div class="education-container">
+                <div class="section-label">
+                    <span class="label-line"></span>
+                    <span class="label-text">Education</span>
+                </div>
+
+                <div class="education-content" data-delay="0">
+                    <div class="edu-main-info">
+                        <h3 class="edu-institution">Vellore Institute of Technology</h3>
+                        <p class="edu-degree"><abbr title="Bachelor of Technology" class="acronym">B.Tech</abbr> in Computer Science & Engineering</p>
+                        <div class="edu-meta">
+                            <span class="edu-location">Vellore, India</span>
+                            <span class="edu-dates">2020 — 2024</span>
+                            <span class="edu-gpa">8.8 / 10 <abbr title="Grade Point Average" class="acronym">GPA</abbr></span>
                         </div>
                     </div>
-                    
-                    <div class="stat-orb" data-delay="150">
-                        <div class="orb-glow"></div>
-                        <div class="orb-content">
-                            <span class="stat-number" data-target="250" data-suffix="K+">0</span>
-                            <span class="stat-label">Devices Scaled</span>
+                    <div class="edu-activities">
+                        <div class="edu-activity featured">
+                            <span class="activity-role">Merit Scholar</span>
+                            <span class="activity-org">Top 10 / 2,100 · 2 years</span>
                         </div>
-                    </div>
-                    
-                    <div class="stat-orb accent-cyan" data-delay="300">
-                        <div class="orb-glow"></div>
-                        <div class="orb-content">
-                            <span class="stat-number" data-target="99.9" data-suffix="%" data-decimal="true">0</span>
-                            <span class="stat-label">Uptime Achieved</span>
+                        <div class="edu-activity">
+                            <span class="activity-role">Executive Board</span>
+                            <span class="activity-org"><abbr title="Association for Computing Machinery" class="acronym">ACM</abbr> / <abbr title="Association for Computing Machinery - Women" class="acronym">ACM-W</abbr> <abbr title="Vellore Institute of Technology" class="acronym">VIT</abbr></span>
                         </div>
-                    </div>
-                    
-                    <div class="stat-orb accent-lavender" data-delay="450">
-                        <div class="orb-glow"></div>
-                        <div class="orb-content">
-                            <span class="stat-number" data-target="0.65" data-suffix="%" data-prefix="Top " data-decimal="true">0</span>
-                            <span class="stat-label">Selection Rate</span>
+                        <div class="edu-activity">
+                            <span class="activity-role">Senior Technical Committee</span>
+                            <span class="activity-org"><abbr title="Mozilla Firefox Club" class="acronym">MFC</abbr> <abbr title="Vellore Institute of Technology" class="acronym">VIT</abbr></span>
+                        </div>
+                        <div class="edu-activity">
+                            <span class="activity-role">Senior Technical Committee</span>
+                            <span class="activity-org"><abbr title="Institute of Electrical and Electronics Engineers" class="acronym">IEEE</abbr> <abbr title="Vellore Institute of Technology" class="acronym">VIT</abbr></span>
                         </div>
                     </div>
                 </div>
@@ -125,19 +162,21 @@
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <div class="timeline-company">Qualcomm</div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-role">Software Engineer I</span>
-                                    <span class="timeline-date">Aug 2025 — Present</span>
+                                <div class="timeline-header-left">
+                                    <span class="timeline-company">Qualcomm</span>
+                                    <span class="timeline-tag tag-fulltime">Full-time</span>
                                 </div>
+                                <span class="timeline-date">Oct 2025 — Present</span>
                             </div>
-                            <div class="timeline-location">Hyderabad, India</div>
+                            <div class="timeline-meta">
+                                <span class="timeline-role">Software Engineer I</span>
+                                <span class="timeline-location">Hyderabad, India</span>
+                            </div>
                             <ul class="timeline-highlights">
-                                <li>Orion Award recipient for leading ETL pipeline migration, optimizing IoT simulations, and co-developing an AI-driven Regression Change Detector.</li>
-                                <li>Engineered GenAI diagram-generation platform (Claude LLM + Docker + Kubernetes), supporting 10K+ users; reduced technical documentation time by 30%.</li>
-                                <li>Owned full-stack backend development for multiple services in Java, including peer code reviews and mentoring junior engineers.</li>
+                                <li>Orion Award recipient for leading <abbr title="Extract, Transform, Load" class="acronym">ETL</abbr> pipeline migration, optimizing <abbr title="Internet of Things" class="acronym">IoT</abbr> simulations, and co-developing an <abbr title="Artificial Intelligence" class="acronym">AI</abbr>-driven Regression Change Detector, enhancing <abbr title="Continuous Integration/Continuous Deployment" class="acronym">CI/CD</abbr> traceability and boosting platform reliability across teams.</li>
+                                <li>Engineered <abbr title="Generative Artificial Intelligence" class="acronym">GenAI</abbr> diagram-generation platform (Claude <abbr title="Large Language Model" class="acronym">LLM</abbr> + Docker + Kubernetes), supporting 10K+ users; reduced technical documentation time by 30% and coordinated rollout with engineering, <abbr title="Product Manager" class="acronym">PM</abbr>, and <abbr title="Quality Assurance" class="acronym">QA</abbr> teams.</li>
+                                <li>Owned full-stack backend development for multiple services, implemented in Java, including peer code reviews and mentoring junior engineers on scalable architecture patterns.</li>
                             </ul>
-                            <div class="timeline-tag fulltime">Full-time</div>
                         </div>
                     </article>
 
@@ -148,20 +187,23 @@
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <div class="timeline-company">Qualcomm</div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-role">Associate Software Engineer</span>
-                                    <span class="timeline-date">Jul 2024 — Jul 2025</span>
+                                <div class="timeline-header-left">
+                                    <span class="timeline-company">Qualcomm</span>
+                                    <span class="timeline-tag tag-fulltime">Full-time</span>
                                 </div>
+                                <span class="timeline-date">Jul 2024 — Oct 2025</span>
                             </div>
-                            <div class="timeline-location">Hyderabad, India</div>
+                            <div class="timeline-meta">
+                                <span class="timeline-role">Associate Software Engineer</span>
+                                <span class="timeline-location">Hyderabad, India</span>
+                            </div>
                             <ul class="timeline-highlights">
-                                <li>Led migration of ETL pipeline to distributed RabbitMQ + MySQL, scaling throughput from 1 TB to 10 TB/day.</li>
-                                <li>Architected IoT load-simulation system on AWS EKS + Kafka for 250K+ devices; cut message latency by 40%.</li>
-                                <li>Built self-healing infrastructure with Splunk/Grafana observability; auto-recovered 80% of failures.</li>
-                                <li>Designed FastAPI + SQLAlchemy Proxy SQL gateway for 5K+ concurrent clients achieving 99.9% uptime.</li>
+                                <li>Led migration of <abbr title="Extract, Transform, Load" class="acronym">ETL</abbr> pipeline to distributed RabbitMQ + MySQL, guiding cross-team adoption; introduced multi-worker processing and back-pressure scheduling, scaling throughput 1 TB → 10 TB/day.</li>
+                                <li>Architected <abbr title="Internet of Things" class="acronym">IoT</abbr> load-simulation system on <abbr title="Amazon Web Services" class="acronym">AWS</abbr> <abbr title="Elastic Kubernetes Service" class="acronym">EKS</abbr> + Kafka for 250K+ devices across 40+ teams; introduced adaptive partition balancing, cutting message latency by 40%.</li>
+                                <li>Built self-healing infrastructure with automated reset logic and unified Splunk/Grafana observability; auto-recovered 80% of failures, reducing incident resolution time by 30%.</li>
+                                <li>Developed unified <abbr title="Open Policy Agent" class="acronym">OPA</abbr>-based access control system in Kubernetes across 20+ <abbr title="Application Programming Interface" class="acronym">APIs</abbr> and Kafka topics; reduced misconfigurations by 60%.</li>
+                                <li>Designed FastAPI + SQLAlchemy Proxy <abbr title="Structured Query Language" class="acronym">SQL</abbr> gateway for 5K+ concurrent clients; implemented <abbr title="Kubernetes Event-Driven Autoscaling" class="acronym">KEDA</abbr>-based autoscaling, achieving 99.9% uptime.</li>
                             </ul>
-                            <div class="timeline-tag fulltime">Full-time</div>
                         </div>
                     </article>
 
@@ -172,18 +214,21 @@
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <div class="timeline-company">GE Aerospace</div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-role">Software Development Engineer Intern</span>
-                                    <span class="timeline-date">Jan 2024 — Jun 2024</span>
+                                <div class="timeline-header-left">
+                                    <span class="timeline-company">GE Aerospace</span>
+                                    <span class="timeline-tag tag-intern">Internship</span>
                                 </div>
+                                <span class="timeline-date">Jan 2024 — Jun 2024</span>
                             </div>
-                            <div class="timeline-location">Bengaluru, India</div>
+                            <div class="timeline-meta">
+                                <span class="timeline-role">Software Development Engineer Intern</span>
+                                <span class="timeline-location">Bengaluru, India</span>
+                            </div>
                             <ul class="timeline-highlights">
-                                <li>Automated 'Engine Change Tool', reducing processing errors by ~95% and saving 583 man-hours annually.</li>
-                                <li>Developed comprehensive automated test suites using Nightwatch.js for fleet management portals.</li>
+                                <li>Spearheaded automation of 'Engine Change Tool' by mapping system dependencies and eliminating manual validation loops; reduced processing errors by ~95% and saved 583 man-hours annually.</li>
+                                <li>Developed comprehensive automated test suites using Nightwatch.js for fleet management portals, streamlining regression analysis and accelerating feature delivery within an Agile framework.</li>
+                                <li>Collaborated with cross-functional <abbr title="Quality Assurance" class="acronym">QA</abbr> teams to document workflows and validation logic, ensuring smooth knowledge transfer and enhancing system reliability.</li>
                             </ul>
-                            <div class="timeline-tag intern">Internship</div>
                         </div>
                     </article>
 
@@ -194,19 +239,22 @@
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <div class="timeline-company">Expedia Group</div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-role">Software Development Intern — Flights</span>
-                                    <span class="timeline-date">May 2023 — Jul 2023</span>
+                                <div class="timeline-header-left">
+                                    <span class="timeline-company">Expedia Group</span>
+                                    <span class="timeline-tag tag-intern">Internship</span>
                                 </div>
+                                <span class="timeline-date">May 2023 — Jul 2023</span>
                             </div>
-                            <div class="timeline-location">Gurgaon, India</div>
+                            <div class="timeline-meta">
+                                <span class="timeline-role">Software Development Intern — Flights</span>
+                                <span class="timeline-location">Gurgaon, India</span>
+                            </div>
                             <ul class="timeline-highlights">
-                                <li>Built configurable Maestro-based framework with 30+ toggles covering entire Flights LOB user journey.</li>
-                                <li>Scaled solution across 4 Business Units, enabling 5X faster test case development.</li>
-                                <li>Built Accessibility Identifiers for iOS and Android codebases.</li>
+                                <li>Built from scratch a configurable Maestro-based framework with 30+ toggles, covering the entire scope of user touch story for Flights <abbr title="Line of Business" class="acronym">LOB</abbr>.</li>
+                                <li>Developed the complete suite of <abbr title="User Interface" class="acronym">UI</abbr> and Flow-based Test Cases for Flights, later turned into a Synthetic test suite to monitor <abbr title="Application Programming Interface" class="acronym">API</abbr> downtime and unintentional <abbr title="User Interface" class="acronym">UI</abbr> changes.</li>
+                                <li>Scaled solution across 4 Business Units, enabling 5X faster test case development and auto regression testing via GitHub Actions.</li>
+                                <li>Worked on <abbr title="iPhone Operating System" class="acronym">iOS</abbr> and Android codebases to build Accessibility Identifiers, making <abbr title="User Interface" class="acronym">UI</abbr> elements more accessible for test automation.</li>
                             </ul>
-                            <div class="timeline-tag intern">Internship</div>
                         </div>
                     </article>
 
@@ -217,18 +265,21 @@
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <div class="timeline-company">EPFL (Swiss Federal Institute of Technology)</div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-role">Summer Research Scholar — SaCS Lab</span>
-                                    <span class="timeline-date">May 2022 — Jul 2022</span>
+                                <div class="timeline-header-left">
+                                    <span class="timeline-company"><abbr title="École Polytechnique Fédérale de Lausanne" class="acronym">EPFL</abbr> (Swiss Federal Institute of Technology)</span>
+                                    <span class="timeline-tag tag-research">Research</span>
                                 </div>
+                                <span class="timeline-date">May 2022 — Jul 2022</span>
                             </div>
-                            <div class="timeline-location">Lausanne, Switzerland</div>
+                            <div class="timeline-meta">
+                                <span class="timeline-role">Summer Research Scholar — <abbr title="Scalable Computing Systems" class="acronym">SaCS</abbr> Lab</span>
+                                <span class="timeline-location">Lausanne, Switzerland</span>
+                            </div>
                             <ul class="timeline-highlights">
-                                <li>Selected among top 2% of global applicants for fully funded fellowship in federated machine learning.</li>
-                                <li>Achieved 18% improvement in convergence speed and reduced network overhead by 23.2%.</li>
+                                <li>Selected among top 2% of global applicants for fully funded fellowship to conduct federated machine learning experiments focused on distributed deep learning under resource constraints.</li>
+                                <li>Designed training loops and simulation pipelines to evaluate model performance on heterogeneous data; implemented lightweight pre-processing to mitigate bandwidth bottlenecks.</li>
+                                <li>Optimized aggregation strategies and communication frequency, achieving 18% improvement in convergence speed and reducing mean network communication overhead by 23.2%.</li>
                             </ul>
-                            <div class="timeline-tag research">Research</div>
                         </div>
                     </article>
 
@@ -239,18 +290,21 @@
                         </div>
                         <div class="timeline-content">
                             <div class="timeline-header">
-                                <div class="timeline-company">The D. E. Shaw Group</div>
-                                <div class="timeline-meta">
-                                    <span class="timeline-role">DESIS Ascend Educare Fellow</span>
-                                    <span class="timeline-date">Oct 2021 — May 2022</span>
+                                <div class="timeline-header-left">
+                                    <span class="timeline-company">The D. E. Shaw Group</span>
+                                    <span class="timeline-tag tag-fellowship">Fellowship</span>
                                 </div>
+                                <span class="timeline-date">Oct 2021 — May 2022</span>
                             </div>
-                            <div class="timeline-location">Remote</div>
+                            <div class="timeline-meta">
+                                <span class="timeline-role"><abbr title="D. E. Shaw India Software" class="acronym">DESIS</abbr> Ascend Educare Fellow</span>
+                                <span class="timeline-location">Remote</span>
+                            </div>
                             <ul class="timeline-highlights">
-                                <li>Selected as one of 40 fellows from 6,200+ applicants (Top 0.65%) for exclusive 6-month mentorship.</li>
-                                <li>Developed Recruitment CMS in Node.js; led team to architect Fin€fy fintech product.</li>
+                                <li>Selected as one of 40 fellows from 6,200+ applicants (Top 0.65%) for exclusive 6-month mentorship program; received weekly technical guidance from senior <abbr title="D. E. Shaw India Software" class="acronym">DESIS</abbr> engineers.</li>
+                                <li>Developed a fully fledged Recruitment <abbr title="Content Management System" class="acronym">CMS</abbr> in Node.js, designed to streamline candidate tracking and automate application workflows.</li>
+                                <li>Led a team to architect Fin€fy, a novel fintech product designed to revolutionize financial independence for homemakers; built the backend infrastructure and presented the <abbr title="Minimum Viable Product" class="acronym">MVP</abbr> to firm leadership.</li>
                             </ul>
-                            <div class="timeline-tag fellowship">Fellowship</div>
                         </div>
                     </article>
 
@@ -266,132 +320,110 @@
                 </div>
 
                 <p class="research-intro">
-                    6 peer-reviewed publications across IEEE and Springer, with <span class="highlight">11+ citations</span>.
+                    6 peer-reviewed publications across <abbr title="Institute of Electrical and Electronics Engineers" class="acronym">IEEE</abbr> and Springer, with <span class="highlight">11+ citations</span>.
                 </p>
 
-                <div class="publications-grid">
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10867167/" target="_blank" rel="noopener noreferrer" class="publication-card" data-delay="0">
-                        <div class="pub-venue">
-                            <span class="venue-badge ieee">IEEE</span>
-                            <span class="pub-year">2024</span>
-                        </div>
-                        <h3 class="pub-title">Inventory Management in Augmented Reality Using Apple ARKit for VisionOS</h3>
-                        <p class="pub-conference">4th ICUIS, Mysore</p>
-                        <div class="pub-footer">
-                            <div class="pub-tags">
-                                <span class="pub-tag">iOS</span>
-                                <span class="pub-tag">ARKit</span>
-                                <span class="pub-tag">VisionOS</span>
-                            </div>
-                            <div class="pub-citations">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-                                <span>1 citation</span>
-                            </div>
-                        </div>
-                        <div class="card-glow"></div>
-                    </a>
-
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10862756/" target="_blank" rel="noopener noreferrer" class="publication-card" data-delay="100">
-                        <div class="pub-venue">
-                            <span class="venue-badge ieee">IEEE</span>
-                            <span class="pub-year">2024</span>
-                        </div>
-                        <h3 class="pub-title">Leveraging BBTS and NFTs for Ethical Ticketing in Live Events</h3>
-                        <p class="pub-conference">GCCIT, India</p>
-                        <div class="pub-footer">
-                            <div class="pub-tags">
-                                <span class="pub-tag">Blockchain</span>
-                                <span class="pub-tag">NFTs</span>
-                                <span class="pub-tag">Smart Contracts</span>
-                            </div>
-                        </div>
-                        <div class="card-glow"></div>
-                    </a>
-
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10334244/" target="_blank" rel="noopener noreferrer" class="publication-card featured" data-delay="200">
-                        <div class="pub-venue">
+                <div class="publications-list">
+                    <!-- Highest cited paper first -->
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10334244/" target="_blank" rel="noopener noreferrer" class="publication-row highlighted" data-delay="0">
+                        <div class="pub-meta">
                             <span class="venue-badge ieee">IEEE</span>
                             <span class="pub-year">2023</span>
                         </div>
-                        <h3 class="pub-title">Harnessing Creative Methods for EEG Feature Extraction and Modeling</h3>
-                        <p class="pub-conference">7th CSI-TSS, Vellore</p>
-                        <div class="pub-footer">
-                            <div class="pub-tags">
-                                <span class="pub-tag">Python</span>
-                                <span class="pub-tag">MNE</span>
-                                <span class="pub-tag">Signal Processing</span>
-                            </div>
-                            <div class="pub-citations featured">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-                                <span>6 citations</span>
-                            </div>
+                        <div class="pub-info">
+                            <div class="pub-title">Harnessing Creative Methods for <abbr title="Electroencephalography" class="acronym">EEG</abbr> Feature Extraction and Modeling</div>
+                            <div class="pub-conference">7th <abbr title="International Conference on Computation System and Information Technology for Sustainable Solutions" class="acronym">CSITSS</abbr>, Vellore</div>
                         </div>
-                        <div class="card-glow"></div>
+                        <div class="pub-badges"></div>
+                        <div class="pub-citations high">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            <span>6 citations</span>
+                        </div>
                     </a>
 
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10334128/" target="_blank" rel="noopener noreferrer" class="publication-card" data-delay="300">
-                        <div class="pub-venue">
-                            <span class="venue-badge ieee">IEEE</span>
-                            <span class="pub-year">2023</span>
-                            <span class="first-author">1st Author</span>
-                        </div>
-                        <h3 class="pub-title">Enhancing Visibility: Multiresolution Dark Channel Prior for Dehazing</h3>
-                        <p class="pub-conference">7th CSI-TSS, Vellore</p>
-                        <div class="pub-footer">
-                            <div class="pub-tags">
-                                <span class="pub-tag">Python</span>
-                                <span class="pub-tag">OpenCV</span>
-                                <span class="pub-tag">Dark Channel Prior</span>
-                            </div>
-                            <div class="pub-citations">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-                                <span>1 citation</span>
-                            </div>
-                        </div>
-                        <div class="card-glow"></div>
-                    </a>
-
-                    <a href="https://ieeexplore.ieee.org/abstract/document/9781828/" target="_blank" rel="noopener noreferrer" class="publication-card" data-delay="400">
-                        <div class="pub-venue">
-                            <span class="venue-badge ieee">IEEE</span>
-                            <span class="pub-year">2022</span>
-                            <span class="first-author">1st Author</span>
-                        </div>
-                        <h3 class="pub-title">An Exhaustive Comparative Analytical Study of 15 Machine Learning Models</h3>
-                        <p class="pub-conference">4th ICRTCST, Raipur</p>
-                        <div class="pub-footer">
-                            <div class="pub-tags">
-                                <span class="pub-tag">Python</span>
-                                <span class="pub-tag">ML Models</span>
-                            </div>
-                            <div class="pub-citations">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-                                <span>1 citation</span>
-                            </div>
-                        </div>
-                        <div class="card-glow"></div>
-                    </a>
-
-                    <a href="https://link.springer.com/chapter/10.1007/978-981-16-6723-7_21" target="_blank" rel="noopener noreferrer" class="publication-card" data-delay="500">
-                        <div class="pub-venue">
+                    <!-- 1st Author papers -->
+                    <a href="https://link.springer.com/chapter/10.1007/978-981-16-6723-7_21" target="_blank" rel="noopener noreferrer" class="publication-row highlighted" data-delay="50">
+                        <div class="pub-meta">
                             <span class="venue-badge springer">Springer</span>
                             <span class="pub-year">2022</span>
-                            <span class="first-author">1st Author</span>
                         </div>
-                        <h3 class="pub-title">Randomised Analysis of Backtracking-based Search Algorithms in Sudoku</h3>
-                        <p class="pub-conference">ICICIT, Vellore</p>
-                        <div class="pub-footer">
-                            <div class="pub-tags">
-                                <span class="pub-tag">Python</span>
-                                <span class="pub-tag">Algorithms</span>
-                                <span class="pub-tag">Parallel Computing</span>
-                            </div>
-                            <div class="pub-citations">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-                                <span>2 citations</span>
-                            </div>
+                        <div class="pub-info">
+                            <div class="pub-title">Randomised Analysis of Backtracking-based Search Algorithms in Sudoku</div>
+                            <div class="pub-conference"><abbr title="International Conference on Inventive Computation and Information Technologies" class="acronym">ICICIT</abbr>, Vellore</div>
                         </div>
-                        <div class="card-glow"></div>
+                        <div class="pub-badges">
+                            <span class="first-author-badge">1st Author</span>
+                        </div>
+                        <div class="pub-citations">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            <span>2 citations</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10334128/" target="_blank" rel="noopener noreferrer" class="publication-row highlighted" data-delay="100">
+                        <div class="pub-meta">
+                            <span class="venue-badge ieee">IEEE</span>
+                            <span class="pub-year">2023</span>
+                        </div>
+                        <div class="pub-info">
+                            <div class="pub-title">Enhancing Visibility: Multiresolution Dark Channel Prior for Dehazing</div>
+                            <div class="pub-conference">7th <abbr title="International Conference on Computation System and Information Technology for Sustainable Solutions" class="acronym">CSITSS</abbr>, Vellore</div>
+                        </div>
+                        <div class="pub-badges">
+                            <span class="first-author-badge">1st Author</span>
+                        </div>
+                        <div class="pub-citations">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            <span>1 citation</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ieeexplore.ieee.org/abstract/document/9781828/" target="_blank" rel="noopener noreferrer" class="publication-row highlighted" data-delay="150">
+                        <div class="pub-meta">
+                            <span class="venue-badge ieee">IEEE</span>
+                            <span class="pub-year">2022</span>
+                        </div>
+                        <div class="pub-info">
+                            <div class="pub-title">An Exhaustive Comparative Analytical Study of 15 Machine Learning Models</div>
+                            <div class="pub-conference">4th <abbr title="International Conference on Recent Trends in Computer Science and Technology" class="acronym">ICRTCST</abbr>, Raipur</div>
+                        </div>
+                        <div class="pub-badges">
+                            <span class="first-author-badge">1st Author</span>
+                        </div>
+                        <div class="pub-citations">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            <span>1 citation</span>
+                        </div>
+                    </a>
+
+                    <!-- Other papers -->
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10867167/" target="_blank" rel="noopener noreferrer" class="publication-row" data-delay="200">
+                        <div class="pub-meta">
+                            <span class="venue-badge ieee">IEEE</span>
+                            <span class="pub-year">2024</span>
+                        </div>
+                        <div class="pub-info">
+                            <div class="pub-title">Inventory Management in <abbr title="Augmented Reality" class="acronym">AR</abbr> Using Apple ARKit for VisionOS</div>
+                            <div class="pub-conference">4th <abbr title="International Conference on Ubiquitous and Intelligent Systems" class="acronym">ICUIS</abbr>, Mysore</div>
+                        </div>
+                        <div class="pub-badges"></div>
+                        <div class="pub-citations">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                            <span>1 citation</span>
+                        </div>
+                    </a>
+
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10862756/" target="_blank" rel="noopener noreferrer" class="publication-row" data-delay="250">
+                        <div class="pub-meta">
+                            <span class="venue-badge ieee">IEEE</span>
+                            <span class="pub-year">2024</span>
+                        </div>
+                        <div class="pub-info">
+                            <div class="pub-title">Leveraging <abbr title="Blockchain-Based Ticketing System" class="acronym">BBTS</abbr> and <abbr title="Non-Fungible Tokens" class="acronym">NFTs</abbr> for Ethical Ticketing in Live Events</div>
+                            <div class="pub-conference"><abbr title="Global Conference on Communications and Information Technologies" class="acronym">GCCIT</abbr>, India</div>
+                        </div>
+                        <div class="pub-badges"></div>
+                        <div class="pub-citations"></div>
                     </a>
                 </div>
             </div>
@@ -401,77 +433,73 @@
             <div class="awards-container">
                 <div class="section-label">
                     <span class="label-line"></span>
-                    <span class="label-text">Recognition</span>
+                    <span class="label-text">Awards & Scholarships</span>
                 </div>
 
                 <div class="awards-grid">
                     <div class="award-card featured" data-delay="0">
                         <div class="award-burst"></div>
-                        <div class="award-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                            </svg>
+                        <div class="award-selectivity">
+                            <span class="selectivity-number">Orion</span>
                         </div>
                         <div class="award-content">
                             <div class="award-org">Qualcomm</div>
                             <h3 class="award-title">Orion Award</h3>
-                            <p class="award-desc">Exceptional impact leading to early promotion</p>
-                            <div class="award-year">Oct 2025</div>
+                            <p class="award-desc">Led to early promotion to Software Engineer I</p>
+                            <div class="award-year">2025</div>
                         </div>
                     </div>
 
-                    <div class="award-card" data-delay="100">
-                        <div class="award-burst"></div>
-                        <div class="award-selectivity">
-                            <span class="selectivity-number">Top 2%</span>
-                        </div>
-                        <div class="award-content">
-                            <div class="award-org">EPFL</div>
-                            <h3 class="award-title">Summer Research Scholarship</h3>
-                            <p class="award-desc">3,600 CHF funding for federated ML research</p>
-                            <div class="award-year">May 2022</div>
-                        </div>
-                    </div>
-
-                    <div class="award-card highlight-gold" data-delay="200">
+                    <div class="award-card featured" data-delay="100">
                         <div class="award-burst"></div>
                         <div class="award-selectivity">
                             <span class="selectivity-number">Top 0.9%</span>
                         </div>
                         <div class="award-content">
                             <div class="award-org">Google</div>
-                            <h3 class="award-title">Generation Scholarship (APAC)</h3>
+                            <h3 class="award-title">Generation Scholarship (<abbr title="Asia-Pacific" class="acronym">APAC</abbr>)</h3>
                             <p class="award-desc">$1,000 USD · Selected 180 / 20,000+ applicants</p>
                             <div class="award-year">Apr 2022</div>
+                        </div>
+                    </div>
+
+                    <div class="award-card featured" data-delay="200">
+                        <div class="award-burst"></div>
+                        <div class="award-selectivity">
+                            <span class="selectivity-number">#10</span>
+                            <span class="selectivity-label">/ 2,100</span>
+                        </div>
+                        <div class="award-content">
+                            <div class="award-org"><abbr title="Vellore Institute of Technology" class="acronym">VIT</abbr></div>
+                            <h3 class="award-title">Merit Scholarship</h3>
+                            <p class="award-desc">2 consecutive years</p>
+                            <div class="award-year">2020 — 2022</div>
                         </div>
                     </div>
 
                     <div class="award-card" data-delay="300">
                         <div class="award-burst"></div>
                         <div class="award-selectivity">
-                            <span class="selectivity-number">Top 5%</span>
+                            <span class="selectivity-number">Top 2%</span>
                         </div>
                         <div class="award-content">
-                            <div class="award-org">Harvard University</div>
-                            <h3 class="award-title">WECode Scholarship</h3>
-                            <p class="award-desc">Selected 250 / 5,000+ applicants</p>
-                            <div class="award-year">Mar 2022</div>
+                            <div class="award-org"><abbr title="École Polytechnique Fédérale de Lausanne" class="acronym">EPFL</abbr></div>
+                            <h3 class="award-title">Summer Research Scholarship</h3>
+                            <p class="award-desc">3,600 <abbr title="Swiss Francs" class="acronym">CHF</abbr> funding for federated <abbr title="Machine Learning" class="acronym">ML</abbr> research</p>
+                            <div class="award-year">May 2022</div>
                         </div>
                     </div>
 
                     <div class="award-card" data-delay="400">
                         <div class="award-burst"></div>
-                        <div class="award-icon small">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
-                            </svg>
+                        <div class="award-selectivity">
+                            <span class="selectivity-number">Top 5%</span>
                         </div>
                         <div class="award-content">
-                            <div class="award-org">VIT</div>
-                            <h3 class="award-title">Merit Scholarship</h3>
-                            <p class="award-desc">Ranked Top 10 / 2,100 for 2 consecutive years</p>
-                            <div class="award-year">2020 — 2022</div>
+                            <div class="award-org">Harvard University</div>
+                            <h3 class="award-title"><abbr title="Women Engineers Code" class="acronym">WECode</abbr> Scholarship</h3>
+                            <p class="award-desc">Selected 250 / 5,000+ applicants</p>
+                            <div class="award-year">Mar 2022</div>
                         </div>
                     </div>
 
@@ -483,7 +511,7 @@
                         </div>
                         <div class="award-content">
                             <div class="award-org">American Express</div>
-                            <h3 class="award-title">AI/ML Hackathon</h3>
+                            <h3 class="award-title"><abbr title="Artificial Intelligence" class="acronym">AI</abbr>/<abbr title="Machine Learning" class="acronym">ML</abbr> Hackathon</h3>
                             <p class="award-desc">Individual track competition</p>
                             <div class="award-year">Oct 2021</div>
                         </div>
@@ -495,7 +523,7 @@
                             <span class="selectivity-number">Top 2%</span>
                         </div>
                         <div class="award-content">
-                            <div class="award-org">SUSE (CNCF)</div>
+                            <div class="award-org">SUSE (<abbr title="Cloud Native Computing Foundation" class="acronym">CNCF</abbr>)</div>
                             <h3 class="award-title">Cloud Native Scholarship</h3>
                             <p class="award-desc">Selected 325 / 15,000+ applicants</p>
                             <div class="award-year">Jun 2021</div>
@@ -505,103 +533,113 @@
             </div>
         </section>
 
-        <section id="education" class="education">
-            <div class="education-container">
+        <section id="certifications" class="certifications">
+            <div class="certifications-container">
                 <div class="section-label">
                     <span class="label-line"></span>
-                    <span class="label-text">Education</span>
+                    <span class="label-text">Certifications</span>
                 </div>
 
-                <div class="education-card" data-delay="0">
-                    <div class="edu-main">
-                        <div class="edu-header">
-                            <div class="edu-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                                    <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
-                                </svg>
-                            </div>
-                            <div class="edu-info">
-                                <h3 class="edu-institution">Vellore Institute of Technology</h3>
-                                <p class="edu-degree">Bachelor of Technology in Computer Science & Engineering</p>
-                                <div class="edu-meta">
-                                    <span class="edu-location">Vellore, India</span>
-                                    <span class="edu-dates">Sep 2020 — Jul 2024</span>
-                                </div>
-                            </div>
+                <div class="certifications-grid">
+                    <a href="files/Pramika's Certificate - Deloitte.pdf" target="_blank" rel="noopener noreferrer" class="cert-card" data-delay="0">
+                        <div class="cert-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
                         </div>
-                        
-                        <div class="edu-gpa">
-                            <span class="gpa-value">8.8</span>
-                            <span class="gpa-scale">/ 10</span>
+                        <div class="cert-content">
+                            <span class="cert-title">Technology Consulting Virtual Internship</span>
+                            <span class="cert-org">Deloitte</span>
                         </div>
-                    </div>
+                        <span class="cert-date">Oct 2021</span>
+                    </a>
 
-                    <div class="edu-achievements">
-                        <div class="edu-achievement" data-delay="100">
-                            <div class="achievement-icon gold">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                            </div>
-                            <div class="achievement-content">
-                                <span class="achievement-title">Merit Scholar</span>
-                                <span class="achievement-desc">Ranked Top 10 / 2,100 for 2 consecutive years</span>
-                            </div>
+                    <a href="files/Pramika's Certificate - J P Morgan & Chase.pdf" target="_blank" rel="noopener noreferrer" class="cert-card" data-delay="50">
+                        <div class="cert-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
                         </div>
+                        <div class="cert-content">
+                            <span class="cert-title">Software Engineering Virtual Experience</span>
+                            <span class="cert-org">JP Morgan Chase</span>
+                        </div>
+                        <span class="cert-date">Sep 2021</span>
+                    </a>
 
-                        <div class="edu-achievement" data-delay="200">
-                            <div class="achievement-icon cyan">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                                </svg>
-                            </div>
-                            <div class="achievement-content">
-                                <span class="achievement-title">Executive Board</span>
-                                <span class="achievement-desc">ACM / ACM-W VIT — Finance Head / Outreach Head</span>
-                            </div>
+                    <a href="https://badges.parchment.com/public/assertions/lFzfhwJRSxul64gbQmWeIg?identity__email=micepram%40gmail.com" target="_blank" rel="noopener noreferrer" class="cert-card" data-delay="100">
+                        <div class="cert-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
                         </div>
-                    </div>
+                        <div class="cert-content">
+                            <span class="cert-title">Student Expert</span>
+                            <span class="cert-org">Postman</span>
+                        </div>
+                        <span class="cert-date">Aug 2021</span>
+                    </a>
+
+                    <a href="files/Pramika's Certificate - Goldman Sachs.pdf" target="_blank" rel="noopener noreferrer" class="cert-card" data-delay="150">
+                        <div class="cert-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-title">Engineering Virtual Program</span>
+                            <span class="cert-org">Goldman Sachs</span>
+                        </div>
+                        <span class="cert-date">Jul 2021</span>
+                    </a>
+
+                    <a href="https://www.theforage.com/badges/bf4wbpeaAdDWQfwcy/JroauDhZKTmmr9aCA/Badge%20of%20completion%20for%20the%20Open-Access%20Digital%20Ventures%20Virtual%20Experience%20Program/Pramika" target="_blank" rel="noopener noreferrer" class="cert-card" data-delay="200">
+                        <div class="cert-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div class="cert-content">
+                            <span class="cert-title">Digital Ventures Virtual Experience</span>
+                            <span class="cert-org"><abbr title="Boston Consulting Group" class="acronym">BCG</abbr></span>
+                        </div>
+                        <span class="cert-date">Jul 2021</span>
+                    </a>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact">
             <div class="contact-container">
-                <div class="contact-content">
+                <div class="contact-header">
                     <h2 class="contact-heading">Let's Connect</h2>
                     <p class="contact-text">Open to opportunities, collaborations, and conversations about distributed systems, research, or anything interesting.</p>
-                    
+                </div>
+                
+                <div class="contact-links">
                     <a href="mailto:micepram@gmail.com" class="contact-email">
                         <span class="email-text">micepram@gmail.com</span>
-                        <span class="email-icon">
+                        <span class="email-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M7 17L17 7M17 7H7M17 7V17"/>
                             </svg>
                         </span>
                     </a>
-
                     <div class="contact-social">
-                        <a href="https://github.com/micepram" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+                        <a href="https://github.com/micepram" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="GitHub" title="GitHub">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                            <span>GitHub</span>
                         </a>
-                        <a href="https://linkedin.com/in/micepram" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+                        <a href="https://linkedin.com/in/micepram" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="LinkedIn" title="LinkedIn">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                            <span>LinkedIn</span>
                         </a>
-                        <a href="https://scholar.google.com/citations?user=t0oW2mYAAAAJ" target="_blank" rel="noopener noreferrer" class="contact-social-link">
+                        <a href="https://scholar.google.com/citations?user=t0oW2mYAAAAJ" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="Google Scholar" title="Google Scholar">
                             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
-                            <span>Scholar</span>
                         </a>
                     </div>
                 </div>
 
                 <footer class="footer">
-                    <p class="footer-text">Designed & Built by Pramika Garg</p>
-                    <p class="footer-copyright">© 2025</p>
+                    <p class="footer-text">Designed & Built by Pramika Garg & Avish Jha · © 2025</p>
                 </footer>
             </div>
         </section>
