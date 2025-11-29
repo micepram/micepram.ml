@@ -1293,7 +1293,7 @@ a.timeline-link:hover .timeline-company {
 }
 
 .award-card.featured {
-    grid-column: span 4;
+    grid-column: span 3;
     background: linear-gradient(135deg, rgba(244, 197, 66, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
     border-color: rgba(244, 197, 66, 0.15);
 }
