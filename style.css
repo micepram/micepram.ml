@@ -1066,7 +1066,7 @@ a.timeline-link:hover .timeline-company {
 
 .publication-row {
     display: grid;
-    grid-template-columns: auto 1fr auto auto;
+    grid-template-columns: auto 1fr auto 105px;
     align-items: center;
     gap: 1rem;
     background: rgba(255, 255, 255, 0.02);
@@ -1182,16 +1182,20 @@ a.timeline-link:hover .timeline-company {
     display: flex;
     gap: 0.4rem;
     flex-shrink: 0;
+    min-width: 75px;
+    justify-content: flex-end;
 }
 
 .first-author-badge {
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: 0.65rem;
+    font-weight: 500;
     color: var(--accent-gold);
-    background: rgba(244, 197, 66, 0.1);
-    padding: 0.2rem 0.4rem;
+    background: rgba(244, 197, 66, 0.12);
+    padding: 0.25rem 0.5rem;
     border-radius: 3px;
     white-space: nowrap;
+    letter-spacing: 0.02em;
 }
 
 .pub-citations {
