@@ -46,8 +46,8 @@ function initStarfield() {
     let stars = [];
     let animationId;
     
-    const STAR_COUNT = 200;
-    const STAR_SPEED = 0.02;
+    const STAR_COUNT = 300;
+    const SCROLL_FACTOR = 0.3;
     
     function resize() {
         width = canvas.width = window.innerWidth;
@@ -55,15 +55,15 @@ function initStarfield() {
     }
     
     function createStar() {
-        const shouldTwinkle = Math.random() < 0.3;
+        const shouldTwinkle = Math.random() < 0.7;
         return {
             x: Math.random() * width,
             y: Math.random() * height,
-            size: Math.random() * 1.5 + 0.5,
-            opacity: Math.random() * 0.5 + 0.3,
-            twinkleSpeed: shouldTwinkle ? (Math.random() * 0.0008 + 0.0003) : 0,
+            size: Math.random() * 1.8 + 0.5,
+            opacity: Math.random() * 0.6 + 0.3,
+            twinkleSpeed: shouldTwinkle ? (Math.random() * 0.003 + 0.001) : 0,
             twinkleOffset: Math.random() * Math.PI * 2,
-            twinkleAmount: shouldTwinkle ? (Math.random() * 0.4 + 0.1) : 0,
+            twinkleAmount: shouldTwinkle ? (Math.random() * 0.6 + 0.2) : 0,
             layer: Math.random() < 0.3 ? 1 : Math.random() < 0.6 ? 2 : 3
         };
     }
@@ -101,34 +101,33 @@ function initStarfield() {
         }
     }
     
-    function updateStars(scrollY) {
-        stars.forEach(star => {
-            const parallaxFactor = star.layer * 0.1;
-            star.y += scrollY * parallaxFactor * STAR_SPEED;
-            
-            if (star.y > height + 10) {
-                star.y = -10;
-                star.x = Math.random() * width;
-            } else if (star.y < -10) {
-                star.y = height + 10;
-                star.x = Math.random() * width;
-            }
-        });
-    }
-    
-    let lastScrollY = window.scrollY;
     let time = 0;
+    let lastScrollY = 0;
     
     function animate() {
         time += 16;
+        const scrollY = window.scrollY;
+        const scrollDelta = scrollY - lastScrollY;
+        lastScrollY = scrollY;
         
         ctx.clearRect(0, 0, width, height);
         
-        const scrollDelta = window.scrollY - lastScrollY;
-        lastScrollY = window.scrollY;
-        updateStars(scrollDelta);
-        
-        stars.forEach(star => drawStar(star, time));
+        stars.forEach(star => {
+            // Move stars based on scroll with layer-based parallax
+            const parallaxSpeed = star.layer * SCROLL_FACTOR * 0.1;
+            star.y -= scrollDelta * parallaxSpeed;
+            
+            // Wrap stars around
+            if (star.y < -10) {
+                star.y = height + 10;
+                star.x = Math.random() * width;
+            } else if (star.y > height + 10) {
+                star.y = -10;
+                star.x = Math.random() * width;
+            }
+            
+            drawStar(star, time);
+        });
         
         animationId = requestAnimationFrame(animate);
     }
@@ -163,7 +162,7 @@ function initScrollAnimations() {
     }, observerOptions);
 
     const animatedElements = document.querySelectorAll(
-        '.section-label, .about-intro, .about-secondary, .stat-item, .timeline-item, .research-intro, .publication-row, .award-card, .cert-card, .education-content, .contact-heading, .contact-text, .contact-email, .contact-social'
+        '.section-label, .about-intro, .about-secondary, .stat-item, .timeline-item, .research-intro, .publication-row, .award-card, .project-card, .skill-category, .cert-card, .education-content, .contact-heading, .contact-text, .contact-email, .contact-bar'
     );
     
     animatedElements.forEach(el => observer.observe(el));
