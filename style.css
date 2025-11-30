@@ -158,6 +158,11 @@ section {
     transform: translate(2px, -2px);
 }
 
+/* Hide mobile email icon by default */
+.header-email-link .link-icon-mobile {
+    display: none;
+}
+
 .header-nav .contact-link {
     width: 42px;
     height: 42px;
@@ -206,6 +211,15 @@ section {
 @media (max-width: 600px) {
     .site-header {
         padding: 0.75rem 4%;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    
+    .header-content {
+        align-items: center;
+        text-align: center;
+        gap: 0.2rem;
     }
     
     .header-name {
@@ -213,32 +227,103 @@ section {
     }
     
     .header-tagline {
-        display: none;
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
     }
     
     .header-nav {
         gap: 0.5rem;
+        justify-content: center;
     }
     
     .header-text-link {
-        font-size: 0.7rem;
-        padding: 0.35rem 0.65rem;
-        gap: 0.25rem;
+        font-size: 0.65rem;
+        padding: 0.3rem 0.6rem;
+        gap: 0.2rem;
     }
     
     .header-text-link .link-icon svg {
-        width: 9px;
-        height: 9px;
+        width: 8px;
+        height: 8px;
     }
     
     .header-nav .contact-link {
-        width: 32px;
-        height: 32px;
+        width: 30px;
+        height: 30px;
     }
     
     .header-nav .contact-link svg {
-        width: 14px;
-        height: 14px;
+        width: 13px;
+        height: 13px;
+    }
+
+    /* Transform email link to icon-only on mobile */
+    .header-email-link {
+        padding: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header-email-link .link-text,
+    .header-email-link .link-icon {
+        display: none;
+    }
+
+    .header-email-link .link-icon-mobile {
+        display: flex;
+    }
+
+    .header-email-link .link-icon-mobile svg {
+        width: 13px;
+        height: 13px;
+    }
+}
+
+@media (max-width: 400px) {
+    .site-header {
+        padding: 0.5rem 3%;
+        gap: 0.3rem;
+    }
+
+    .header-name {
+        font-size: 1rem;
+    }
+    
+    .header-tagline {
+        font-size: 0.6rem;
+    }
+
+    .header-nav {
+        gap: 0.35rem;
+    }
+
+    .header-text-link {
+        font-size: 0.6rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .header-nav .contact-link {
+        width: 26px;
+        height: 26px;
+    }
+
+    .header-nav .contact-link svg {
+        width: 11px;
+        height: 11px;
+    }
+    
+    .header-email-link {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .header-email-link .link-icon-mobile svg {
+        width: 11px;
+        height: 11px;
     }
 }
 
