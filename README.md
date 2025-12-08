@@ -38,4 +38,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 *Built with ❤️ by Pramika Garg*  
-[LinkedIn](https://www.linkedin.com/in/pramika-garg/) | [Email](mailto:pramika.garg@example.com)  <!-- Replace with actual email if available -->
+[LinkedIn](https://www.linkedin.com/in/micepram/) | [Email](mailto:micepram@gmail.com) 
