@@ -41,7 +41,7 @@ const testCases = [
         expected: ["BO", "EX"]
     },
     {
-        name: "Two elements - not profitable (6-5=1, doesn't cover premium)",
+        name: "Two elements - not profitable (6-5=1, does not cover premium)",
         input: [5, 6],
         expected: ["H", "H"]
     },

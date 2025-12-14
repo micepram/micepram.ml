@@ -28,9 +28,6 @@ function trader(pred) {
         
         // Check if we should exercise
         if (activeOptions > 0) {
-            // Calculate profit if we exercise now
-            const profitNow = activeOptions * currentPrice - totalStrike - activeOptions;
-            
             // Exercise if:
             // 1. This is the last minute (must exercise), OR
             // 2. Current price is at the maximum (won't go higher)
